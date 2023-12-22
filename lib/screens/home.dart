@@ -91,24 +91,38 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         //   ],
         // ),
         bottom: PreferredSize(
-          preferredSize:  Size.fromHeight(kToolbarHeight),
+          preferredSize: const Size.fromHeight(kToolbarHeight),
           child: Container(
-            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: Colors.grey[200],
+            ),
             child: TabBar(
               controller: _tabController,
               tabAlignment: TabAlignment.center,
-              indicator: BoxDecoration(),
+              indicatorSize: TabBarIndicatorSize.tab,
+              indicator: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                color: Colors.grey[850],
+              ),
+              labelColor: Colors.white,
+              unselectedLabelColor: Colors.grey[850],
               tabs: <Widget>[
                 for (int i = 0; i < titles.length; i++)
                   Row(
                     children: [
                       Tab(
                         child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
-                            Text(titles[i], ),
+                            Text(
+                              titles[i],
+                              style: const TextStyle(fontSize: 12),
+                            ),
                             Text(
                               additionalTexts[i],
-                              style: TextStyle(fontSize: 11),
+                              style: const TextStyle(fontSize: 10),
                             ),
                           ],
                         ),

@@ -6,7 +6,7 @@ List<String> titles = <String>[
 ];
 
 List<String> additionalTexts = [
-  '---',
+  'Select Location',
   'Select Store',
   'Select Store',
   'Next Station'
