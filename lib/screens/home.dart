@@ -1,3 +1,5 @@
+import 'package:dominos/Widgets/delivery_appbar.dart';
+import 'package:dominos/Widgets/offers.dart';
 import 'package:flutter/material.dart';
 
 import '../data/appbar_data.dart';
@@ -32,111 +34,54 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(MfgLabs.location),
-          color: const Color.fromARGB(255, 168, 36, 26),
-          iconSize: 15,
-          onPressed: () {
-            // Handle the map icon tap here
-          },
-        ),
-        title: const Text('Home'),
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Iconic.user),
-            color: const Color.fromARGB(255, 60, 59, 59),
+        appBar: AppBar(
+          leading: IconButton(
+            icon: const Icon(MfgLabs.location),
+            color: const Color.fromARGB(255, 168, 36, 26),
+            iconSize: 15,
             onPressed: () {
-              // Handle the profile icon tap here
+              // Handle the map icon tap here
             },
           ),
-        ],
-        // bottom: TabBar(
-        //   controller: _tabController,
-        //   // isScrollable: true,
-        //   tabAlignment: TabAlignment.center,
-        //   tabs: <Widget>[
-        //     Tab(
-        //       child: Column(
-        //         children: <Widget>[
-        //           Text(titles[0]),
-        //           const Text('---',style: TextStyle(fontSize: 11),),
-        //         ],
-        //       ),
-        //     ),
-        //     Tab(
-        //       child: Column(
-        //         children: <Widget>[
-        //           Text(titles[1]),
-        //           const Text('Select Store',style: TextStyle(fontSize: 11),),
-        //         ],
-        //       ),
-        //     ),
-        //     Tab(
-        //       child: Column(
-        //         children: <Widget>[
-        //           Text(titles[2]),
-        //           const Text('Select Store',style: TextStyle(fontSize: 11),),
-        //         ],
-        //       ),
-        //     ),
-        //     Tab(
-        //       child: Column(
-        //         children: <Widget>[
-        //           Text(titles[3]),
-        //           const Text('Next Station',style: TextStyle(fontSize: 11),),
-        //         ],
-        //       ),
-        //     ),
-        //   ],
-        // ),
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(kToolbarHeight),
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              color: Colors.grey[200],
+          title: const Text('Home'),
+          actions: <Widget>[
+            IconButton(
+              icon: const Icon(Iconic.user),
+              color: const Color.fromARGB(255, 60, 59, 59),
+              onPressed: () {
+                // Handle the profile icon tap here
+              },
             ),
-            child: TabBar(
-              controller: _tabController,
-              tabAlignment: TabAlignment.center,
-              indicatorSize: TabBarIndicatorSize.tab,
-              indicator: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                color: Colors.grey[850],
-              ),
-              labelColor: Colors.white,
-              unselectedLabelColor: Colors.grey[850],
-              tabs: <Widget>[
-                for (int i = 0; i < titles.length; i++)
-                  Row(
-                    children: [
-                      Tab(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              titles[i],
-                              style: const TextStyle(fontSize: 12),
-                            ),
-                            Text(
-                              additionalTexts[i],
-                              style: const TextStyle(fontSize: 10),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-              ],
-            ),
-          ),
+          ],
+          bottom: const PreferredSize(
+              preferredSize: Size.fromHeight(kToolbarHeight), child: Dtabbar()),
         ),
-      ),
-      body: const Center(
-        child: Text('Home'),
-      ),
-    );
+
+        //  body start here
+
+        body: Container(
+          padding: const EdgeInsets.symmetric(vertical: 18.0, horizontal: 10.0),
+          alignment: Alignment.centerLeft,
+          child: const Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Offers for you',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 22,
+                ),
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Offers()
+              )
+              
+            ],
+          ),
+        ));
   }
 }
