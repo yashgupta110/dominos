@@ -59,12 +59,14 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
         //  body start here
 
-        body: Container(
-          padding: const EdgeInsets.symmetric(vertical: 18.0, horizontal: 10.0),
-          alignment: Alignment.centerLeft,
-          child: const Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+        body: const Column(
+          children: [
+            SizedBox(
+              height: 10,
+            ),
+            Row(children: <Widget>[
+              SizedBox(
+                width: 10,),
               Text(
                 'Offers for you',
                 style: TextStyle(
@@ -72,16 +74,13 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                   fontSize: 22,
                 ),
               ),
-              SizedBox(
-                height: 8,
-              ),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Offers()
-              )
-              
-            ],
-          ),
+            ]),
+            SizedBox(
+              height: 8,
+            ),
+            SingleChildScrollView(
+                scrollDirection: Axis.horizontal, child: Offers())
+          ],
         ));
   }
 }
