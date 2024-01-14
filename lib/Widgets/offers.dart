@@ -9,30 +9,41 @@ class Offers extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Container(
-          width: 340,
-          height: 60,
-          decoration: BoxDecoration(
-            gradient: const LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: <Color>[
-                  Color.fromARGB(255, 6, 108, 77),
-                  Color.fromARGB(255, 16, 158, 129)
-                ]),
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10.0),
+        const SizedBox(
+          width: 10,
+        ),
+        GestureDetector(
+          onTap: () => {
+            print('ontab'),
+            // *****ontab functionality ****
+            // Navigator.pushNamed(context, '/offers')
+          },
+          child: Container(
+            width: 340,
+            height: 60,
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: <Color>[
+                    Color.fromARGB(255, 6, 108, 77),
+                    Color.fromARGB(255, 16, 158, 129)
+                  ]),
+              borderRadius: BorderRadius.circular(6),
+            ),
             child: Row(
               children: [
+                const SizedBox(
+                  width: 10,
+                ),
                 const Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Row(
                       children: [
-                        Icon(MaterialCommunityIcons.percent),
+                        Icon(MaterialCommunityIcons.ticket_percent,
+                            color: Colors.white, size: 25),
                         SizedBox(
                           width: 10,
                         ),
@@ -41,6 +52,7 @@ class Offers extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w800,
+                            color: Colors.white,
                           ),
                         ),
                       ],
@@ -49,7 +61,8 @@ class Offers extends StatelessWidget {
                       'Get 30% off up to ₹60 on your first order',
                       style: TextStyle(
                         fontSize: 12,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white,
                       ),
                     ),
                   ],
@@ -77,39 +90,50 @@ class Offers extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(width: 10,),
-        Container(
-          width: 340,
-          height: 60,
-          decoration: BoxDecoration(
-            gradient: const LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: <Color>[
-                  Color.fromARGB(255, 11, 53, 118),
-                  Color.fromARGB(255, 21, 99, 177)
-                ]),
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10.0),
+        const SizedBox(
+          width: 10,
+        ),
+        GestureDetector(
+          onTap: () => {
+            print('ontab'),
+            // *****ontab functionality ****
+            // Navigator.pushNamed(context, '/offers')
+          },
+          child: Container(
+            width: 340,
+            height: 60,
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: <Color>[
+                    Color.fromARGB(255, 11, 53, 118),
+                    Color.fromARGB(255, 21, 99, 177)
+                  ]),
+              borderRadius: BorderRadius.circular(6),
+            ),
             child: Row(
               children: [
+                const SizedBox(
+                  width: 10,
+                ),
                 const Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Row(
                       children: [
-                        Icon(MaterialCommunityIcons.percent),
+                        Icon(MaterialCommunityIcons.ticket_percent,
+                            color: Colors.white, size: 25),
                         SizedBox(
                           width: 10,
                         ),
                         Text(
-                          'Flat ₹300 OFF',
+                          'Up to ₹60 OFF',
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w800,
+                            color: Colors.white,
                           ),
                         ),
                       ],
@@ -118,7 +142,8 @@ class Offers extends StatelessWidget {
                       'Get 30% off up to ₹60 on your first order',
                       style: TextStyle(
                         fontSize: 12,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white,
                       ),
                     ),
                   ],
@@ -146,6 +171,9 @@ class Offers extends StatelessWidget {
             ),
           ),
         ),
+        const SizedBox(
+          width: 10,
+        )
       ],
     );
   }
