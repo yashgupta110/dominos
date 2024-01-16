@@ -77,7 +77,9 @@ class Offers extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    print('ontap');
+                  },
                   child: const Text(
                     'View',
                     style: TextStyle(
@@ -158,7 +160,9 @@ class Offers extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    print('ontap');
+                  },
                   child: const Text(
                     'View',
                     style: TextStyle(

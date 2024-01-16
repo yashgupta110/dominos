@@ -1,5 +1,6 @@
 import 'package:dominos/Widgets/delivery_appbar.dart';
-import 'package:dominos/Widgets/offers.dart';
+import 'package:dominos/Widgets/home_menu.dart';
+
 import 'package:flutter/material.dart';
 
 import '../data/appbar_data.dart';
@@ -56,31 +57,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           bottom: const PreferredSize(
               preferredSize: Size.fromHeight(kToolbarHeight), child: Dtabbar()),
         ),
-
-        //  body start here
-
-        body: const Column(
-          children: [
-            SizedBox(
-              height: 10,
-            ),
-            Row(children: <Widget>[
-              SizedBox(
-                width: 10,),
-              Text(
-                'Offers for you',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 22,
-                ),
-              ),
-            ]),
-            SizedBox(
-              height: 8,
-            ),
-            SingleChildScrollView(
-                scrollDirection: Axis.horizontal, child: Offers())
-          ],
-        ));
+        body: const Homemenu());
   }
 }
