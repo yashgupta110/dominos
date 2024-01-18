@@ -1,6 +1,8 @@
+import 'package:dominos/Widgets/bestseller.dart';
 import 'package:dominos/Widgets/offers.dart';
 import 'package:dominos/data/appbar_data.dart';
 import 'package:flutter/material.dart';
+
 
 class Homemenu extends StatelessWidget {
   const Homemenu({super.key});
@@ -67,8 +69,7 @@ class Homemenu extends StatelessWidget {
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3, // Number of columns
               childAspectRatio: 0.8,
-              mainAxisSpacing: 5,
-              crossAxisSpacing: 5 // Aspect ratio
+              crossAxisSpacing: 12 // Aspect ratio
               ),
           itemBuilder: (BuildContext context, int index) {
             return Column(
@@ -76,12 +77,13 @@ class Homemenu extends StatelessWidget {
                 ClipOval(
                   child: Image.network(homeimages[index]),
                 ),
-                Center(
-                  child: Text(
-                    data[index],
-                    style: const TextStyle(
-                        fontSize: 12, fontWeight: FontWeight.w500),
+                Text(
+                  data[index],
+                  style: const TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w500,
                   ),
+                  textAlign: TextAlign.center,
                 ),
               ],
             );
@@ -92,27 +94,15 @@ class Homemenu extends StatelessWidget {
           color: Colors.grey[300],
         ),
         Container(
-          height: 300,
+          height: 500,
           decoration: const BoxDecoration(
-            gradient: LinearGradient(
-                colors: [Color.fromARGB(255, 214, 213, 175), Color.fromARGB(255, 189, 183, 129),Color.fromARGB(255, 214, 212, 165)],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter),
+            gradient: LinearGradient(colors: [
+              Color.fromARGB(255, 255, 255, 255),
+              Color.fromARGB(255, 189, 182, 120),
+              Color.fromARGB(255, 255, 255, 255)
+            ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
           ),
-          child: const Column(
-            children: [
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                "TOP 10 Bestsellers",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                ),
-              ),
-            ],
-          ),
+          child : const Bestseller() ,
         ),
       ],
     );
