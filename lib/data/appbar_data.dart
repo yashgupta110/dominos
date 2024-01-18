@@ -11,7 +11,7 @@ List<String> additionalTexts = [
   'Select Store',
   'Next Station'
 ];
-List<String> data= [
+List<String> data = [
   'Veg Pizza',
   'Non-veg Pizza',
   'Gourmet Pizza',
