@@ -3,7 +3,6 @@ import 'package:dominos/Widgets/offers.dart';
 import 'package:dominos/data/appbar_data.dart';
 import 'package:flutter/material.dart';
 
-
 class Homemenu extends StatelessWidget {
   const Homemenu({super.key});
 
@@ -68,8 +67,8 @@ class Homemenu extends StatelessWidget {
           itemCount: 6,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3, // Number of columns
-              childAspectRatio: 0.8,
-              crossAxisSpacing: 12 // Aspect ratio
+              childAspectRatio: 0.85,
+              crossAxisSpacing: 10 // Aspect ratio
               ),
           itemBuilder: (BuildContext context, int index) {
             return Column(
@@ -89,6 +88,9 @@ class Homemenu extends StatelessWidget {
             );
           },
         ),
+        const SizedBox(
+          height: 15,
+        ),
         Container(
           height: 8,
           color: Colors.grey[300],
@@ -98,11 +100,11 @@ class Homemenu extends StatelessWidget {
           decoration: const BoxDecoration(
             gradient: LinearGradient(colors: [
               Color.fromARGB(255, 255, 255, 255),
-              Color.fromARGB(255, 189, 182, 120),
+              Color.fromARGB(255, 193, 184, 107),
               Color.fromARGB(255, 255, 255, 255)
             ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
           ),
-          child : const Bestseller() ,
+          child: const Bestseller(),
         ),
       ],
     );
