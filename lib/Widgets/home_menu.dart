@@ -96,7 +96,7 @@ class Homemenu extends StatelessWidget {
           color: Colors.grey[300],
         ),
         Container(
-          height: 500,
+          height: 550,
           decoration: const BoxDecoration(
             gradient: LinearGradient(colors: [
               Color.fromARGB(255, 255, 255, 255),

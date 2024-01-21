@@ -1,3 +1,4 @@
+import 'package:dominos/Widgets/bestsellerList.dart';
 import 'package:flutter/material.dart';
 import 'package:icons_flutter/icons_flutter.dart';
 
@@ -136,7 +137,24 @@ class Bestseller extends StatelessWidget {
           ),
         ),
         const SizedBox(
-          height: 25,
+          height: 18,
+        ),
+        SizedBox(
+          height: 360,
+          width: double.infinity,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: 11, 
+            itemBuilder: (BuildContext context, int index) {
+              if (index == 10) { 
+                return const Padding(
+                  padding:
+                       EdgeInsets.only(right: 14.0), // 
+                );
+              }
+              return const BestsellerList();
+            },
+          ),
         ),
       ],
     );
