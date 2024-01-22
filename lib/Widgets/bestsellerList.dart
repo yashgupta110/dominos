@@ -1,4 +1,6 @@
+import 'package:dominos/Widgets/overImageData.dart';
 import 'package:flutter/material.dart';
+
 
 class BestsellerList extends StatelessWidget {
   const BestsellerList({
@@ -8,15 +10,15 @@ class BestsellerList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:const  EdgeInsets.only(
-        left: 14,
+      padding: const EdgeInsets.only(
+        left: 10,
       ),
       child: Stack(
         alignment: Alignment.bottomCenter,
         children: <Widget>[
           Container(
             width: 360,
-            height: 360,
+            height: 340,
             decoration: BoxDecoration(
               image: const DecorationImage(
                 image: NetworkImage(
@@ -27,9 +29,42 @@ class BestsellerList extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
             ),
           ),
-          
+          const Positioned(
+            bottom: 90,
+            left: 10,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Margherita',
+                  // textAlign:TextAlign.right ,
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white,
+                  ),
+                ),
+                Text(
+                  'Classic delight with 100% real mozzarella cheese',
+                  // textAlign:TextAlign.right ,
+                  style: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Positioned(
+            bottom: 80,
+            child: Container(
+              height: 1.5,
+              width: 360,
+              color: Colors.grey,
+            ),
+          ),
           Container(
-            
             width: 360,
             height: 80,
             decoration: BoxDecoration(
@@ -37,14 +72,18 @@ class BestsellerList extends StatelessWidget {
                 begin: Alignment.bottomCenter,
                 end: Alignment.topCenter,
                 colors: <Color>[
-                  Color.fromARGB(255, 20, 20, 20).withOpacity(0.98), // Adjust the opacity as needed
-                  Color.fromARGB(255, 38, 36, 36).withOpacity(0.96),
-                  Color.fromARGB(255, 38, 36, 36).withOpacity(0.92)
+                  const Color.fromARGB(255, 21, 21, 21)
+                      .withOpacity(1), // Adjust the opacity as needed
+                  const Color.fromARGB(203, 39, 39, 39).withOpacity(0.97),
+                  const Color.fromARGB(226, 72, 72, 72).withOpacity(0.9),
                 ],
-                stops: const[0.15, 0.8,1],
+                // stops: const [0.15, 0.6, 0.9],
               ),
-              borderRadius: const  BorderRadius.only(bottomLeft:Radius.circular(20),bottomRight: Radius.circular(20)),
+              borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(20),
+                  bottomRight: Radius.circular(20)),
             ),
+            child: const OverimageData(),
           ),
         ],
       ),

@@ -140,16 +140,15 @@ class Bestseller extends StatelessWidget {
           height: 18,
         ),
         SizedBox(
-          height: 360,
+          height: 340,
           width: double.infinity,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: 11, 
+            itemCount: 11,
             itemBuilder: (BuildContext context, int index) {
-              if (index == 10) { 
+              if (index == 10) {
                 return const Padding(
-                  padding:
-                       EdgeInsets.only(right: 14.0), // 
+                  padding: EdgeInsets.only(right: 10.0), //
                 );
               }
               return const BestsellerList();
