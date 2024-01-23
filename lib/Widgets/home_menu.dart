@@ -1,5 +1,6 @@
 import 'package:dominos/Widgets/bestseller.dart';
 import 'package:dominos/Widgets/offers.dart';
+import 'package:dominos/Widgets/segmentbutton.dart';
 import 'package:dominos/data/appbar_data.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +12,9 @@ class Homemenu extends StatelessWidget {
     return ListView(
       scrollDirection: Axis.vertical,
       children: [
+        // ***ordertype widget***//
+        const OrderType(),
+
         const Column(
           children: [
             SizedBox(
@@ -91,12 +95,12 @@ class Homemenu extends StatelessWidget {
         const SizedBox(
           height: 15,
         ),
-        Container(
-          height: 8,
+        Divider(
           color: Colors.grey[300],
+          thickness: 8,
         ),
         Container(
-          height: 550,
+          height: 520,
           decoration: const BoxDecoration(
             gradient: LinearGradient(colors: [
               Color.fromARGB(255, 255, 255, 255),
@@ -105,6 +109,14 @@ class Homemenu extends StatelessWidget {
             ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
           ),
           child: const Bestseller(),
+        ),
+        Divider(
+          color: Colors.grey[300],
+          thickness: 8,
+        ),
+        Container(
+          height: 50,
+          color: Colors.white,
         ),
       ],
     );
