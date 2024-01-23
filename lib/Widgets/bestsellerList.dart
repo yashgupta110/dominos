@@ -1,6 +1,6 @@
-import 'package:dominos/Widgets/overImageData.dart';
 import 'package:flutter/material.dart';
 
+import 'package:dominos/Widgets/overImageData.dart';
 
 class BestsellerList extends StatelessWidget {
   const BestsellerList({
@@ -16,7 +16,7 @@ class BestsellerList extends StatelessWidget {
       child: Stack(
         alignment: Alignment.bottomCenter,
         children: <Widget>[
-          Container(
+          Container( 
             width: 360,
             height: 340,
             decoration: BoxDecoration(
@@ -27,6 +27,84 @@ class BestsellerList extends StatelessWidget {
                 fit: BoxFit.fill,
               ),
               borderRadius: BorderRadius.circular(20),
+            ),
+          ),
+          Positioned(
+            top: 0,
+            right: 0,
+            child: Stack(
+              children: <Widget>[
+                ShaderMask(
+                  shaderCallback: (Rect bounds) {
+                    return const LinearGradient(
+                      colors: [
+                        Color.fromARGB(255, 190, 143, 34),
+                        Color.fromARGB(255, 120, 75, 3)
+                      ],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    ).createShader(bounds);
+                  },
+                  child: const Icon(
+                    Icons.bookmark_sharp,
+                    size: 100,
+                    color: Colors
+                        .white, // This color will be replaced by the gradient
+                  ),
+                ),
+                const Positioned(
+                  right:
+                      0, // Adjust this value as needed to position the text on the icon
+                  bottom:
+                      0, // Adjust this value as needed to position the text on the icon
+                  child: Text(
+                    'Your Text Here',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 10, // Adjust the font size as needed
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Positioned(
+            right: 0,
+            bottom: 150,
+            child: Container(
+              height: 25,
+              width: 120,
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Color.fromARGB(255, 40, 146, 50),
+                    Color.fromARGB(255, 20, 69, 23)
+                  ],
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                ),
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(4),
+                    bottomLeft: Radius.circular(4)),
+              ),
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Icon(
+                    Icons.check_circle,
+                    color: Colors.white,
+                    size: Checkbox.width,
+                  ),
+                  Text(
+                    'Customised >',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w800, color: Colors.white),
+                  ),
+                  SizedBox(
+                    width: 4,
+                  )
+                ],
+              ),
             ),
           ),
           const Positioned(
@@ -59,7 +137,7 @@ class BestsellerList extends StatelessWidget {
           Positioned(
             bottom: 80,
             child: Container(
-              height: 1.5,
+              height: 1.8,
               width: 360,
               color: Colors.grey,
             ),
@@ -74,10 +152,10 @@ class BestsellerList extends StatelessWidget {
                 colors: <Color>[
                   const Color.fromARGB(255, 21, 21, 21)
                       .withOpacity(1), // Adjust the opacity as needed
-                  const Color.fromARGB(203, 39, 39, 39).withOpacity(0.97),
-                  const Color.fromARGB(226, 72, 72, 72).withOpacity(0.9),
+                  const Color.fromARGB(203, 39, 39, 39).withOpacity(0.98),
+                  const Color.fromARGB(226, 72, 72, 72).withOpacity(0.97),
                 ],
-                // stops: const [0.15, 0.6, 0.9],
+                stops: const [0.15, 0.5, 1],
               ),
               borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(20),

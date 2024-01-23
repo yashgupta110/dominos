@@ -1,4 +1,4 @@
-import 'package:dominos/Widgets/delivery_appbar.dart';
+import 'package:dominos/Widgets/appbar.dart';
 import 'package:dominos/Widgets/home_menu.dart';
 
 import 'package:flutter/material.dart';
@@ -35,28 +35,30 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            icon: const Icon(MfgLabs.location),
-            color: const Color.fromARGB(255, 168, 36, 26),
-            iconSize: 15,
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(MfgLabs.location),
+          color: const Color.fromARGB(255, 168, 36, 26),
+          iconSize: 15,
+          onPressed: () {
+            // Handle the map icon tap here
+          },
+        ),
+        title: const Text('Home'),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Iconic.user),
+            color: const Color.fromARGB(255, 60, 59, 59),
             onPressed: () {
-              // Handle the map icon tap here
+              // Handle the profile icon tap here
+              print('Profile icon tapped');
             },
           ),
-          title: const Text('Home'),
-          actions: <Widget>[
-            IconButton(
-              icon: const Icon(Iconic.user),
-              color: const Color.fromARGB(255, 60, 59, 59),
-              onPressed: () {
-                // Handle the profile icon tap here
-              },
-            ),
-          ],
-          bottom: const PreferredSize(
-              preferredSize: Size.fromHeight(kToolbarHeight), child: Dtabbar()),
-        ),
-        body: const Homemenu());
+        ],
+      ),
+      bottomNavigationBar: const Dtabbar(),
+      body: const Homemenu(),
+
+    );
   }
 }

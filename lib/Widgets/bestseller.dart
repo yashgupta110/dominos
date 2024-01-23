@@ -1,4 +1,4 @@
-import 'package:dominos/Widgets/bestsellerList.dart';
+import 'package:dominos/Widgets/bestsellerlist.dart';
 import 'package:flutter/material.dart';
 import 'package:icons_flutter/icons_flutter.dart';
 
