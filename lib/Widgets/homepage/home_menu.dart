@@ -1,6 +1,6 @@
-import 'package:dominos/Widgets/bestseller.dart';
-import 'package:dominos/Widgets/offers.dart';
-import 'package:dominos/Widgets/segmentbutton.dart';
+import 'package:dominos/Widgets/homepage/bestseller.dart';
+import 'package:dominos/Widgets/homepage/offers.dart';
+import 'package:dominos/Widgets/homepage/segmentbutton.dart';
 import 'package:dominos/data/appbar_data.dart';
 import 'package:flutter/material.dart';
 

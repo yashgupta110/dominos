@@ -1,6 +1,7 @@
-import 'package:dominos/Widgets/bestsellerlist.dart';
 import 'package:flutter/material.dart';
 import 'package:icons_flutter/icons_flutter.dart';
+
+import 'package:dominos/Widgets/homepage/bestsellerlist.dart';
 
 class Bestseller extends StatelessWidget {
   const Bestseller({super.key});
