@@ -1,12 +1,11 @@
-import 'package:dominos/Widgets/appbar.dart';
-import 'package:dominos/Widgets/home_menu.dart';
-
 import 'package:flutter/material.dart';
-
-import '../data/appbar_data.dart';
 
 import 'package:fluttericon/mfg_labs_icons.dart';
 import 'package:fluttericon/iconic_icons.dart';
+
+import 'package:dominos/Widgets/homepage/appbar.dart';
+import 'package:dominos/Widgets/homepage/home_menu.dart';
+import '../data/appbar_data.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -58,7 +57,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       ),
       bottomNavigationBar: const Dtabbar(),
       body: const Homemenu(),
-
     );
   }
 }

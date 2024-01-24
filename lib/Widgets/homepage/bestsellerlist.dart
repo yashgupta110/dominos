@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:dominos/Widgets/overImageData.dart';
+import 'package:dominos/Widgets/homepage/topseller.dart';
+import 'package:dominos/Widgets/homepage/overImageData.dart';
 
 class BestsellerList extends StatelessWidget {
   const BestsellerList({
@@ -16,7 +17,7 @@ class BestsellerList extends StatelessWidget {
       child: Stack(
         alignment: Alignment.bottomCenter,
         children: <Widget>[
-          Container( 
+          Container(
             width: 360,
             height: 340,
             decoration: BoxDecoration(
@@ -29,45 +30,7 @@ class BestsellerList extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
             ),
           ),
-          Positioned(
-            top: 0,
-            right: 0,
-            child: Stack(
-              children: <Widget>[
-                ShaderMask(
-                  shaderCallback: (Rect bounds) {
-                    return const LinearGradient(
-                      colors: [
-                        Color.fromARGB(255, 190, 143, 34),
-                        Color.fromARGB(255, 120, 75, 3)
-                      ],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                    ).createShader(bounds);
-                  },
-                  child: const Icon(
-                    Icons.bookmark_sharp,
-                    size: 100,
-                    color: Colors
-                        .white, // This color will be replaced by the gradient
-                  ),
-                ),
-                const Positioned(
-                  right:
-                      0, // Adjust this value as needed to position the text on the icon
-                  bottom:
-                      0, // Adjust this value as needed to position the text on the icon
-                  child: Text(
-                    'Your Text Here',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 10, // Adjust the font size as needed
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
+          const Topseller(),
           Positioned(
             right: 0,
             bottom: 150,

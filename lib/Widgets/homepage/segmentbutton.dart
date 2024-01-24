@@ -16,11 +16,11 @@ class _OrderTypeState extends State<OrderType> {
   Widget build(BuildContext context) {
     return CupertinoSlidingSegmentedControl<int>(
       thumbColor: const Color.fromRGBO(46, 46, 46, 1),
-      // padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      padding: const EdgeInsets.only(left: 10, right: 10, ),
       backgroundColor: Colors.grey[200]!,
       children: <int, Widget>{
         0: SizedBox(
-          height:50 ,
+          height: 50,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
