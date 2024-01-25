@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:icons_flutter/icons_flutter.dart';
 
+import 'package:dominos/screens/menu.dart';
+import '../../screens/combooffer.dart';
+
 class Dtabbar extends StatefulWidget {
   const Dtabbar({super.key});
 
@@ -48,6 +51,28 @@ class _Dtabbar extends State<Dtabbar> with TickerProviderStateMixin {
           labelColor: Colors.grey[900],
           unselectedLabelColor: Colors.grey[900],
           tabAlignment: TabAlignment.fill,
+          onTap: (index) => {
+            if (index == 0)
+              {
+                // 0 is the index of the 'Menu' tab
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          const MenuScreen()), // Replace this with your 'Menu' screen
+                ),
+              }
+            else
+              {
+                // 0 is the index of the 'Menu' tab
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          const ComboScreen()), // Replace this with your 'Menu' screen
+                ),
+              }
+          },
           tabs: const <Widget>[
             SizedBox(
               height: 60,

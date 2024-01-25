@@ -1,8 +1,9 @@
+import 'package:flutter/material.dart';
+
 import 'package:dominos/Widgets/homepage/bestseller.dart';
 import 'package:dominos/Widgets/homepage/offers.dart';
 import 'package:dominos/Widgets/homepage/segmentbutton.dart';
 import 'package:dominos/data/appbar_data.dart';
-import 'package:flutter/material.dart';
 
 class Homemenu extends StatelessWidget {
   const Homemenu({super.key});
@@ -14,7 +15,7 @@ class Homemenu extends StatelessWidget {
       children: [
         // ***ordertype widget***//
         const OrderType(),
-
+// ***offer widget***//
         const Column(
           children: [
             SizedBox(
