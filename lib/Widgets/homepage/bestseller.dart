@@ -100,7 +100,10 @@ class Bestseller extends StatelessWidget {
           child: const Text(
             'TOP 10 Bestsellers',
             style: TextStyle(
-                fontWeight: FontWeight.w900, fontSize: 25, color: Colors.white),
+              fontWeight: FontWeight.w900,
+              fontSize: 25,
+              color: Colors.white,
+            ),
             textAlign: TextAlign.center,
           ),
         ),
