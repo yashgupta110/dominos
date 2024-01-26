@@ -1,18 +1,11 @@
-import 'package:dominos/Widgets/homepage/home_menu.dart';
 import 'package:dominos/Widgets/offerdetails.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:icons_flutter/icons_flutter.dart';
 
-class Offers extends StatefulWidget {
-  const Offers({Key? key}) : super(key: key);
+class Offers extends StatelessWidget {
+  const Offers({super.key});
 
-  @override
-  State<Offers> createState() => _OffersState();
-}
-
-class _OffersState extends State<Offers> {
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -22,13 +15,13 @@ class _OffersState extends State<Offers> {
         ),
         GestureDetector(
           onTap: () => {
-            print('ontab'),
             showModalBottomSheet(
               context: context,
-              // isScrollControlled: true,
+              isScrollControlled: true,
               backgroundColor: Colors.transparent,
-              builder: (context) => Offerdetails(),
-            ),
+              barrierColor: Colors.black54,
+              builder: (context) => const Offerdetails(),
+            )
           },
           child: Container(
             width: 340,
