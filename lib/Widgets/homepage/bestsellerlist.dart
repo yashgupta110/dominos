@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:dominos/Widgets/homepage/topseller.dart';
-import 'package:dominos/Widgets/homepage/overImageData.dart';
+import 'package:dominos/Widgets/homepage/overImagedata.dart';
 
 class BestsellerList extends StatelessWidget {
   const BestsellerList({

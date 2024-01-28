@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1071009979345",
+    "project_id": "domino-s-clone-5f61b",
+    "storage_bucket": "domino-s-clone-5f61b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1071009979345:android:67a28045b42bc85d375ef0",
+        "android_client_info": {
+          "package_name": "com.example.dominos"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6UNuJelBfQHfkp3KXQeYbquWn_WXKMxc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

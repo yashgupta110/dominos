@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:icons_flutter/icons_flutter.dart';
 
 import 'package:dominos/screens/menu.dart';
-import '../../screens/combooffer.dart';
+import '../../screens/evooffer.dart';
 
 class Dtabbar extends StatefulWidget {
   const Dtabbar({super.key});
 
   @override
-  State<StatefulWidget> createState() {
+  State<Dtabbar> createState() {
     return _Dtabbar();
   }
 }
@@ -64,12 +64,11 @@ class _Dtabbar extends State<Dtabbar> with TickerProviderStateMixin {
               }
             else
               {
-                // 0 is the index of the 'Menu' tab
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                       builder: (context) =>
-                          const ComboScreen()), // Replace this with your 'Menu' screen
+                          const EvoScreen()), // Replace this with your 'EVD Offer' screen
                 ),
               }
           },

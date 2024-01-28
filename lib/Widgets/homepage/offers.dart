@@ -1,18 +1,11 @@
-import 'package:dominos/Widgets/homepage/home_menu.dart';
-import 'package:dominos/Widgets/offerdetails.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'package:icons_flutter/icons_flutter.dart';
 
-class Offers extends StatefulWidget {
-  const Offers({Key? key}) : super(key: key);
+import 'package:dominos/Widgets/homepage/offerdetails.dart';
 
-  @override
-  State<Offers> createState() => _OffersState();
-}
+class Offers extends StatelessWidget {
+  const Offers({super.key});
 
-class _OffersState extends State<Offers> {
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -22,13 +15,18 @@ class _OffersState extends State<Offers> {
         ),
         GestureDetector(
           onTap: () => {
-            print('ontab'),
             showModalBottomSheet(
+              isDismissible: true,
               context: context,
-              // isScrollControlled: true,
+              isScrollControlled: true,
               backgroundColor: Colors.transparent,
-              builder: (context) => Offerdetails(),
-            ),
+              barrierColor: Colors.black54,
+              builder: (context) => Container(
+                height: MediaQuery.of(context).size.height *
+                    0.9, // 90% of screen height
+                child: const Offerdetails(),
+              ),
+            )
           },
           child: Container(
             width: 340,
@@ -44,10 +42,8 @@ class _OffersState extends State<Offers> {
               borderRadius: BorderRadius.circular(6),
             ),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                const SizedBox(
-                  width: 10,
-                ),
                 const Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -82,16 +78,16 @@ class _OffersState extends State<Offers> {
                 const SizedBox(
                   width: 10,
                 ),
-                OutlinedButton(
-                  style: OutlinedButton.styleFrom(
-                    side: const BorderSide(color: Colors.white, width: 1),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+                Container(
+                  padding: const EdgeInsetsDirectional.symmetric(
+                      horizontal: 18, vertical: 8),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(
+                      color: Colors.white,
+                      width: 1,
                     ),
                   ),
-                  onPressed: () {
-                    print('ontap');
-                  },
                   child: const Text(
                     'View',
                     style: TextStyle(
@@ -127,10 +123,8 @@ class _OffersState extends State<Offers> {
               borderRadius: BorderRadius.circular(6),
             ),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                const SizedBox(
-                  width: 10,
-                ),
                 const Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -165,16 +159,16 @@ class _OffersState extends State<Offers> {
                 const SizedBox(
                   width: 10,
                 ),
-                OutlinedButton(
-                  style: OutlinedButton.styleFrom(
-                    side: const BorderSide(color: Colors.white, width: 1),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+                Container(
+                  padding: const EdgeInsetsDirectional.symmetric(
+                      horizontal: 18, vertical: 8),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(
+                      color: Colors.white,
+                      width: 1,
                     ),
                   ),
-                  onPressed: () {
-                    print('ontap');
-                  },
                   child: const Text(
                     'View',
                     style: TextStyle(

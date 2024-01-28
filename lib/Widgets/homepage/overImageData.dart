@@ -24,8 +24,11 @@ class OverimageData extends StatelessWidget {
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
                   color: Colors.white,
+                  
+                  decorationThickness: 1.5,
+                  decorationColor: Colors.white,
                   decoration: TextDecoration.underline,
-                  decorationStyle: TextDecorationStyle.solid),
+                  decorationStyle: TextDecorationStyle.dashed),
             ),
           ],
         ),

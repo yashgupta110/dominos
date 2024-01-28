@@ -1,7 +1,7 @@
+import 'package:dominos/Widgets/homepage/offer.dart';
 import 'package:flutter/material.dart';
 
 import 'package:dominos/Widgets/homepage/bestseller.dart';
-import 'package:dominos/Widgets/homepage/offers.dart';
 import 'package:dominos/Widgets/homepage/segmentbutton.dart';
 import 'package:dominos/data/appbar_data.dart';
 
@@ -15,7 +15,7 @@ class Homemenu extends StatelessWidget {
       children: [
         // ***ordertype widget***//
         const OrderType(),
-// ***offer widget***//
+        // ***offer widget***//
         const Column(
           children: [
             SizedBox(
@@ -38,7 +38,7 @@ class Homemenu extends StatelessWidget {
             ),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
-              child: Offers(),
+              child: Offer(),
             ),
           ],
         ),

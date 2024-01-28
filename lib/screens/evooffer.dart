@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 
-class ComboScreen extends StatefulWidget {
-  const ComboScreen({super.key});
+class EvoScreen extends StatefulWidget {
+  const EvoScreen({super.key});
 
   @override
-  State<StatefulWidget> createState() {
-    return _ComboScreen();
+  State<EvoScreen> createState() {
+    return _EvoScreen();
   }
 }
 
-class _ComboScreen extends State<ComboScreen> {
+class _EvoScreen extends State<EvoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('value offer'),
+        
+        title: const Text('Everyday value Offers'),
       ),
       body: const Center(
         child: Text(
