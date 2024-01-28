@@ -16,10 +16,10 @@ class _OfferdetailsState extends State<Offerdetails> {
       snapAnimationDuration: const Duration(milliseconds: 3),
       shouldCloseOnMinExtent: true,
       minChildSize: 0.0,
-      initialChildSize: 0.9,
-      maxChildSize: 0.9,
+      initialChildSize: 0.85,
+      maxChildSize: 0.85,
       snap: true,
-      snapSizes: const [0.7],
+      snapSizes: const [0.65],
       builder: (BuildContext context, ScrollController scrollController) {
         return Container(
           decoration: const BoxDecoration(

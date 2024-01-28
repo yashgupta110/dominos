@@ -1,7 +1,7 @@
-import 'package:dominos/Widgets/offerdetails.dart';
 import 'package:flutter/material.dart';
-
 import 'package:icons_flutter/icons_flutter.dart';
+
+import 'package:dominos/Widgets/homepage/offerdetails.dart';
 
 class Offers extends StatelessWidget {
   const Offers({super.key});
@@ -16,11 +16,16 @@ class Offers extends StatelessWidget {
         GestureDetector(
           onTap: () => {
             showModalBottomSheet(
+              isDismissible: true,
               context: context,
               isScrollControlled: true,
               backgroundColor: Colors.transparent,
               barrierColor: Colors.black54,
-              builder: (context) => const Offerdetails(),
+              builder: (context) => Container(
+                height: MediaQuery.of(context).size.height *
+                    0.9, // 90% of screen height
+                child: const Offerdetails(),
+              ),
             )
           },
           child: Container(
@@ -37,10 +42,8 @@ class Offers extends StatelessWidget {
               borderRadius: BorderRadius.circular(6),
             ),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                const SizedBox(
-                  width: 10,
-                ),
                 const Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,16 +78,16 @@ class Offers extends StatelessWidget {
                 const SizedBox(
                   width: 10,
                 ),
-                OutlinedButton(
-                  style: OutlinedButton.styleFrom(
-                    side: const BorderSide(color: Colors.white, width: 1),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+                Container(
+                  padding: const EdgeInsetsDirectional.symmetric(
+                      horizontal: 18, vertical: 8),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(
+                      color: Colors.white,
+                      width: 1,
                     ),
                   ),
-                  onPressed: () {
-                    print('ontap');
-                  },
                   child: const Text(
                     'View',
                     style: TextStyle(
@@ -120,10 +123,8 @@ class Offers extends StatelessWidget {
               borderRadius: BorderRadius.circular(6),
             ),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                const SizedBox(
-                  width: 10,
-                ),
                 const Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -158,16 +159,16 @@ class Offers extends StatelessWidget {
                 const SizedBox(
                   width: 10,
                 ),
-                OutlinedButton(
-                  style: OutlinedButton.styleFrom(
-                    side: const BorderSide(color: Colors.white, width: 1),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+                Container(
+                  padding: const EdgeInsetsDirectional.symmetric(
+                      horizontal: 18, vertical: 8),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(
+                      color: Colors.white,
+                      width: 1,
                     ),
                   ),
-                  onPressed: () {
-                    print('ontap');
-                  },
                   child: const Text(
                     'View',
                     style: TextStyle(

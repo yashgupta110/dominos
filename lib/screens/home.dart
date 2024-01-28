@@ -1,3 +1,4 @@
+import 'package:dominos/screens/profile.dart';
 import 'package:flutter/material.dart';
 
 import 'package:fluttericon/mfg_labs_icons.dart';
@@ -11,7 +12,7 @@ class Home extends StatefulWidget {
   const Home({super.key});
 
   @override
-  State<StatefulWidget> createState() {
+  State<Home> createState() {
     return _HomeState();
   }
 }
@@ -37,23 +38,46 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       body: GlowingOverscrollIndicator(
         axisDirection: AxisDirection.down,
         notificationPredicate: (notification) => true,
-        color: const Color.fromARGB(255, 128, 165, 197)
-        ,
+        color: const Color.fromARGB(255, 128, 165, 197),
         child: NestedScrollView(
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
             return [
               SliverAppBar(
+                automaticallyImplyLeading: false,
+                // leadingWidth: 0,
                 // floating: true,
                 // snap: true,
-                leading: IconButton(
-                  icon: const Icon(MfgLabs.location),
-                  color: const Color.fromARGB(255, 168, 36, 26),
-                  iconSize: 15,
-                  onPressed: () {
-                    // Handle the map icon tap here
+                title: InkWell(
+                  onTap: () {
+                    // Handle the title tap here
+                    print('Title tapped');
                   },
+                  
+                  child: const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Icon(
+                            MfgLabs.location,
+                            color: Color.fromARGB(255, 168, 36, 26),
+                            size: 18,
+                          ),
+                          SizedBox(width: 5),
+                          Text(
+                            'Home',
+                            style: TextStyle(fontSize: 18),
+                          ),
+                        ],
+                      ),
+                      Text(
+                        'Current Location',
+                        style: TextStyle(fontSize: 14),
+                      )
+                    ],
+                  ),
                 ),
-                title: const Text('Home'),
                 actions: <Widget>[
                   IconButton(
                     icon: const Icon(Iconic.user),
@@ -61,6 +85,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                     onPressed: () {
                       // Handle the profile icon tap here
                       print('Profile icon tapped');
+                      Scaffold.of(context).openDrawer();
                     },
                   ),
                 ],
@@ -70,6 +95,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           body: const Homemenu(),
         ),
       ),
+      drawer: const ProfileScreen(),
       bottomNavigationBar: const Dtabbar(),
     );
   }

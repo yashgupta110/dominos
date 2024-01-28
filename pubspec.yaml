@@ -37,6 +37,11 @@ dependencies:
   cupertino_icons: ^1.0.2
   fluttericon: ^2.0.0
   icons_flutter: ^0.0.4
+  flutter_launcher_icons: ^0.13.1
+  firebase_auth: ^4.16.0
+  firebase_core: ^2.24.2
+  another_dashed_container: ^1.0.0
+  shared_preferences: ^2.2.2
 
 dev_dependencies:
   flutter_test:

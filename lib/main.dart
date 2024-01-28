@@ -1,5 +1,9 @@
-import 'package:dominos/screens/home.dart';
+import 'package:dominos/screens/authscreen.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
+import 'package:dominos/screens/home.dart';
 
 final theme = ThemeData(
   useMaterial3: true,
@@ -8,8 +12,18 @@ final theme = ThemeData(
       seedColor: const Color.fromARGB(255, 52, 61, 186)),
 );
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(MaterialApp(
+    initialRoute: '/',
+    routes: {
+      '/': (context) =>const Authscreen(),
+      '/home': (context) => const  Home(), // Your home screen widget
+    },
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -19,7 +33,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: theme,
-      home: const Home(),
+      home: const Authscreen(),
     );
   }
 }
