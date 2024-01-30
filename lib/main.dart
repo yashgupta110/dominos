@@ -21,7 +21,7 @@ void main() async {
     initialRoute: '/',
     routes: {
       '/': (context) =>const Authscreen(),
-      '/home': (context) => const  Home(), // Your home screen widget
+      '/home': (context) => const  Home(), 
     },
   ));
 }
