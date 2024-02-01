@@ -15,7 +15,6 @@ class Authscreen extends StatefulWidget {
 class _Authscreen extends State<Authscreen> {
   final _auth = FirebaseAuth.instance;
   final _phoneNumberController = TextEditingController(text: '+91');
-  final _smsController = TextEditingController();
   String? _verificationId;
 
   void _verifyPhoneNumber() async {

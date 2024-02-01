@@ -48,6 +48,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                 // floating: true,
                 // snap: true,
                 title: InkWell(
+                  splashFactory: NoSplash.splashFactory,
+                  
                   onTap: () {
                     // Handle the title tap here
                     print('Title tapped');

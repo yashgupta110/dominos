@@ -13,14 +13,9 @@ class OTPScreen extends StatefulWidget {
 }
 
 class _OTPScreenState extends State<OTPScreen> {
-  final _otpController = TextEditingController();
+  List<TextEditingController> controllers =
+      List.generate(6, (index) => TextEditingController());
   final _auth = FirebaseAuth.instance;
-
-  @override
-  void dispose() {
-    _otpController.dispose();
-    super.dispose();
-  }
 
   void _signInWithCredential(PhoneAuthCredential credential) async {
     try {
@@ -36,9 +31,10 @@ class _OTPScreenState extends State<OTPScreen> {
   }
 
   void _verifyOTP() {
+    String enteredOtp = controllers.map((controller) => controller.text).join();
     final _credential = PhoneAuthProvider.credential(
       verificationId: widget.verificationId,
-      smsCode: _otpController.text,
+      smsCode: enteredOtp,
     );
     _signInWithCredential(_credential);
   }
@@ -52,7 +48,8 @@ class _OTPScreenState extends State<OTPScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Column(crossAxisAlignment: CrossAxisAlignment.start,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
                   'OTP Verification',
@@ -60,21 +57,41 @@ class _OTPScreenState extends State<OTPScreen> {
                 ),
                 Text(
                   'OTP has been sent to ${widget.phoneNumber} Change',
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+                  style: const TextStyle(
+                      fontSize: 15, fontWeight: FontWeight.w600),
                 ),
-                TextField(
-                  inputFormatters: [],
-                  maxLength: 6,
-                  keyboardType: TextInputType.number,
-                  controller: _otpController,
-                  onChanged: (value) {
-                    print(value);
-                  },
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List.generate(
+                    6,
+                    (index) => Container(
+                      width: 40.0,
+                      margin: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: TextField(
+                        controller: controllers[index],
+                        keyboardType: TextInputType.number,
+                        textAlign: TextAlign.center,
+                        maxLength: 1,
+                        onChanged: (value) {
+                          if (value.length == 1 && index < 5) {
+                            FocusScope.of(context).nextFocus();
+                          }
+                        },
+                        decoration: InputDecoration(
+                          counter: const Offstage(),
+                          contentPadding: const EdgeInsets.all(10.0),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),
             Padding(
-              padding:  const EdgeInsets.only(bottom: 20.0),
+              padding: const EdgeInsets.only(bottom: 20.0),
               child: ElevatedButton(
                 style: ButtonStyle(
                   minimumSize: const MaterialStatePropertyAll(
