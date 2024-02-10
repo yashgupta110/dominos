@@ -14,7 +14,7 @@ class Authscreen extends StatefulWidget {
 
 class _Authscreen extends State<Authscreen> {
   final _auth = FirebaseAuth.instance;
-  final _phoneNumberController = TextEditingController(text: '+91');
+  final _phoneNumberController = TextEditingController(text: '+91 ');
   String? _verificationId;
 
   void _verifyPhoneNumber() async {
@@ -29,7 +29,9 @@ class _Authscreen extends State<Authscreen> {
         Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) => OTPScreen(verificationId: verificationId, phoneNumber: _phoneNumberController.text)),
+              builder: (context) => OTPScreen(
+                  verificationId: verificationId,
+                  phoneNumber: _phoneNumberController.text)),
         );
       },
       codeAutoRetrievalTimeout: (String verificationId) {
@@ -60,6 +62,9 @@ class _Authscreen extends State<Authscreen> {
                       ),
                     ),
                     TextButton(
+                      style: const ButtonStyle(
+                        splashFactory: NoSplash.splashFactory,
+                      ),
                       onPressed: () {},
                       child: const Text(
                         'Skip',
@@ -161,6 +166,7 @@ class _Authscreen extends State<Authscreen> {
                   child: TextField(
                     controller: _phoneNumberController,
                     keyboardType: TextInputType.number,
+                    onSubmitted: (value) => _verifyPhoneNumber(),
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8),

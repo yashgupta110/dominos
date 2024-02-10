@@ -44,7 +44,7 @@ class _OTPScreenState extends State<OTPScreen> {
     return Scaffold(
       appBar: AppBar(),
       body: Padding(
-        padding: const EdgeInsets.only(top: 40.0, left: 15, right: 15.0),
+        padding: const EdgeInsets.only(top: 40.0, left: 20, right: 15.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
@@ -58,15 +58,16 @@ class _OTPScreenState extends State<OTPScreen> {
                 Text(
                   'OTP has been sent to ${widget.phoneNumber} Change',
                   style: const TextStyle(
-                      fontSize: 15, fontWeight: FontWeight.w600),
+                      fontSize: 14, fontWeight: FontWeight.w600),
                 ),
+                const SizedBox(height: 25.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: List.generate(
                     6,
                     (index) => Container(
-                      width: 40.0,
-                      margin: const EdgeInsets.symmetric(horizontal: 8.0),
+                      width: 45.0,
+                      margin: const EdgeInsets.symmetric(horizontal: 6.0),
                       child: TextField(
                         controller: controllers[index],
                         keyboardType: TextInputType.number,
@@ -76,12 +77,30 @@ class _OTPScreenState extends State<OTPScreen> {
                           if (value.length == 1 && index < 5) {
                             FocusScope.of(context).nextFocus();
                           }
+                          if (value.length == 0 && index < 6) {
+                            FocusScope.of(context).previousFocus();
+                          }
+                        },
+                        onSubmitted: (value) {
+                          _verifyOTP();
+                        
                         },
                         decoration: InputDecoration(
                           counter: const Offstage(),
-                          contentPadding: const EdgeInsets.all(10.0),
+                          contentPadding: const EdgeInsets.all(14.0),
                           border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: const BorderSide(
+                              color: Colors.grey,
+                              width: 1.5,
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: const BorderSide(
+                              color: Colors.black,
+                              width: 1.5
+                            ),
                           ),
                         ),
                       ),
