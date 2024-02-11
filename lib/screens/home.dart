@@ -9,7 +9,8 @@ import 'package:dominos/Widgets/homepage/home_menu.dart';
 import '../data/appbar_data.dart';
 
 class Home extends StatefulWidget {
-  const Home({super.key});
+  final  String? phone_number;
+  const Home({super.key, required this.phone_number});
 
   @override
   State<Home> createState() {
@@ -97,7 +98,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           body: const Homemenu(),
         ),
       ),
-      drawer: const ProfileScreen(),
+      drawer: ProfileScreen(phoneNumber: widget.phone_number??""),
       bottomNavigationBar: const Dtabbar(),
     );
   }

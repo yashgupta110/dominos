@@ -1,3 +1,4 @@
+import 'package:dominos/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -23,7 +24,13 @@ class _OTPScreenState extends State<OTPScreen> {
           await _auth.signInWithCredential(credential);
 
       if (userCredential.user != null) {
-        Navigator.pushReplacementNamed(context, '/home');
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) =>
+                Home(phone_number: userCredential.user!.phoneNumber),
+          ),
+        );
       }
     } catch (e) {
       print('Failed to sign in: $e');
@@ -77,13 +84,12 @@ class _OTPScreenState extends State<OTPScreen> {
                           if (value.length == 1 && index < 5) {
                             FocusScope.of(context).nextFocus();
                           }
-                          if (value.length == 0 && index < 6) {
+                          if (value.length == 0 && index > 0) {
                             FocusScope.of(context).previousFocus();
                           }
                         },
                         onSubmitted: (value) {
                           _verifyOTP();
-                        
                         },
                         decoration: InputDecoration(
                           counter: const Offstage(),
@@ -98,9 +104,7 @@ class _OTPScreenState extends State<OTPScreen> {
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                             borderSide: const BorderSide(
-                              color: Colors.black,
-                              width: 1.5
-                            ),
+                                color: Colors.black, width: 1.5),
                           ),
                         ),
                       ),
