@@ -58,3 +58,18 @@ List<LinearGradient> offergradients = [
   // Add more gradients as needed
 ];
 
+List<String> drawerdata = [
+  'Menu',
+  'Deals & Offers',
+  '1+1 Offer',
+  'Deliver On Train',
+  'Track Order',
+  'Order History',
+  'Domino\'s Wallet',
+  'Bulk Order',
+  'Change Language',
+  'Feedback',
+  'Nutritional Information',
+  'Terms & Conditions',
+  'Contact US',
+];
