@@ -1,5 +1,7 @@
 import 'package:dominos/data/appbar_data.dart';
+import 'package:dominos/screens/authscreen.dart';
 import 'package:dominos/screens/userscreen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:icons_flutter/icons_flutter.dart';
 
@@ -81,56 +83,82 @@ class _ProfileScreenState extends State<ProfileScreen> {
         padding: EdgeInsets.zero,
         physics: const NeverScrollableScrollPhysics(),
         children: <Widget>[
-          GestureDetector(
-            onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const UserScreen(),
-                )),
-            child: Container(
-              height: 130,
-              color: const Color.fromARGB(255, 210, 235, 255),
-              padding: const EdgeInsets.only(top: 40, left: 20, right: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Icon(
-                        LineariconsFree.user_1,
-                        size: 25,
-                        color: Colors.black,
-                      ),
-                      const SizedBox(width: 10),
-                      Column(
+          StreamBuilder<User?>(
+            stream: FirebaseAuth.instance.authStateChanges(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.active) {
+                final User? user = snapshot.data;
+                if (user == null) {
+                  return ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Authscreen(),
+                            ));
+                      },
+                      child: Text('Login'));
+                } else {
+                  return GestureDetector(
+                    onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const UserScreen(),
+                        )),
+                    child: Container(
+                      height: 130,
+                      color: const Color.fromARGB(255, 210, 235, 255),
+                      padding:
+                          const EdgeInsets.only(top: 40, left: 20, right: 20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          const Text(
-                            'user',
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.w600),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Icon(
+                                LineariconsFree.user_1,
+                                size: 25,
+                                color: Colors.black,
+                              ),
+                              const SizedBox(width: 10),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  const Text(
+                                    'user',
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                  Text(
+                                    widget.phoneNumber.substring(
+                                        3, widget.phoneNumber.length),
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.w900),
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                           Text(
-                            widget.phoneNumber
-                                .substring(3, widget.phoneNumber.length),
-                            style: const TextStyle(fontWeight: FontWeight.w900),
-                          ),
+                            'Edit',
+                            style: TextStyle(
+                                color: Colors.blue[900],
+                                fontWeight: FontWeight.w700),
+                          )
                         ],
                       ),
-                    ],
-                  ),
-                  Text(
-                    'Edit',
-                    style: TextStyle(
-                        color: Colors.blue[900], fontWeight: FontWeight.w700),
-                  )
-                ],
-              ),
-            ),
+                    ),
+                  );
+                }
+              } else {
+                return const CircularProgressIndicator();
+              }
+            },
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height - 160,

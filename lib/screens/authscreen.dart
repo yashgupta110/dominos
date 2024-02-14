@@ -20,7 +20,9 @@ class _Authscreen extends State<Authscreen> {
   void _verifyPhoneNumber() async {
     await _auth.verifyPhoneNumber(
       phoneNumber: _phoneNumberController.text,
-      verificationCompleted: (PhoneAuthCredential credential) async {},
+      verificationCompleted: (PhoneAuthCredential credential) async {
+        await _auth.signInWithCredential(credential);
+      },
       verificationFailed: (FirebaseAuthException e) {
         print('Failed to verify phone number: $e');
       },
@@ -34,9 +36,10 @@ class _Authscreen extends State<Authscreen> {
                   phoneNumber: _phoneNumberController.text)),
         );
       },
-      codeAutoRetrievalTimeout: (String verificationId) {
+      codeAutoRetrievalTimeout: (String verificationId,) {
         _verificationId = verificationId;
       },
+
     );
   }
 
