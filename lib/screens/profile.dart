@@ -135,8 +135,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                         fontWeight: FontWeight.w600),
                                   ),
                                   Text(
-                                    widget.phoneNumber.substring(
-                                        3, widget.phoneNumber.length),
+                                    widget.phoneNumber.length >= 3 ? widget.phoneNumber.substring(3) : widget.phoneNumber,
                                     style: const TextStyle(
                                         fontWeight: FontWeight.w900),
                                   ),

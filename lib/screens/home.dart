@@ -38,7 +38,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     return Scaffold(
       body: GlowingOverscrollIndicator(
         axisDirection: AxisDirection.down,
-        notificationPredicate: (notification) => true,
+        notificationPredicate: (notification) => false,
         color: const Color.fromARGB(255, 128, 165, 197),
         child: NestedScrollView(
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
@@ -87,7 +87,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                     color: const Color.fromARGB(255, 60, 59, 59),
                     onPressed: () {
                       // Handle the profile icon tap here
-                      print('Profile icon tapped');
                       Scaffold.of(context).openDrawer();
                     },
                   ),

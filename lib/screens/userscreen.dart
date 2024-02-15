@@ -19,7 +19,7 @@ class UserScreen extends StatelessWidget {
         child: TextButton(
           onPressed: () {
             _logout();
-           Navigator.pop(context , const Home(phone_number: '',));
+           Navigator.pop(context , const Home(phone_number: null));
           },
           child: const Text(
             'Logout',
